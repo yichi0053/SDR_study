@@ -121,60 +121,81 @@ sdr-study/
 - `d19_bpsk_mod.py`:自行實作 BPSK 調變
 - `d20_constellation.py`:畫星座圖
 
-#### Day 8:解調與錯誤率
+### Day 8｜Ch4 後半:FSK、差分編碼、QPSK 模擬
 
-**閱讀**:PySDR Ch4 後半
+**閱讀**:PySDR Ch4 Frequency Shift Keying、Differential Coding、Python Example
 
 **實作**
 
-- `d21_bpsk_demod.py`:BPSK 解調,驗證位元正確還原
-- `d22_noise.py`:加入 AWGN,觀察星座點擴散
-- `d23_ber.py`:不同 SNR 下的 BER 曲線
+- `d21_qpsk_symbols.py`:產生 QPSK 符號(`x_int` → 角度 → 弧度 → `cos+1j*sin`),
+- `d22_noise.py`:加入 AWGN,觀察星座點擴散;另做 phase noise 對照
+- `d23_differential.py`:實作差分編碼與解碼
+
 
 ---
 
-### Day 9–10｜Filters 章節
+### Day 9｜Ch10 Noise and Random Variables
 
-#### Day 9:FIR 濾波器設計
-
-**閱讀**:PySDR Filters 章節前半(FIR、頻率響應、convolution 實作面)
+**閱讀**:PySDR Ch10 全章(Gaussian Noise、隨機變數、SNR、SINR、AWGN 完整定義)
 
 **實作**
 
-- `d24_fir_filter.py`:設計 FIR 低通濾波器,畫頻率響應
+- `d24_gaussian_noise.py`:產生高斯雜訊,畫出直方圖(histogram)驗證常態分布,計算變異數與功率的關係
+- `d25_snr.py`:實作 SNR 計算,產生不同 SNR 下的訊號,用 PSD(Day 6 學過的六步驟)觀察雜訊地板(noise floor)的變化
+- `d26_ber.py`:對 QPSK 符號掃描不同 SNR,用象限判決還原位元,統計錯誤率,畫出經驗 BER 曲線
 
-#### Day 10:降採樣與抗混疊銜接
-
-**閱讀**:PySDR Filters 章節後半(Decimation)
-
-**實作**
-
-- `d25_decimation.py`:高取樣率訊號抽取,比較有無前置濾波的差異,呼應 Day 3 抗混疊概念
 
 ---
 
-### Day 11–12｜真實 IQ 資料驗收
+### Day 10｜Ch11 Filters 前半:基礎概念與卷積
 
-#### Day 11:讀取與檢視
-
-**閱讀**:搜尋 SigMF sample recordings 或公開 RTL-SDR IQ 錄音,閱讀資料格式說明
+**閱讀**:PySDR Ch11 Filter Basics、Filter Representation(含 Example Use-Case、Real vs Complex Filters)、Convolution、Filter Implementation(含 FIR vs IIR)
 
 **實作**
 
-- `d26_load_iq.py`:讀入陌生 IQ 檔,處理 int8/int16/float32 等不同資料型別
-
-#### Day 12:完整分析
-
-**實作**
-
-- `d27_analyze_iq.py`:畫頻譜圖,標出可見訊號的頻率位置與大致頻寬,套用 PSD 六步驟與 Day 10 學到的濾波技巧做前處理
+- `d27_convolution_demo.py`:用 `np.convolve` 實作卷積,分別對兩個方波、方波與三角波做卷積,視覺化「滑動積分」的過程,驗證輸出長度為 `N+M-1`
+- `d28_moving_average.py`:實作原文提到的移動平均濾波器(taps 全為 1),對含雜訊訊號套用,用 FFT 驗證它確實是一個低通濾波器
 
 ---
 
-### Day 13｜整理與回報
+### Day 11｜Ch11 Filters 後半:FIR 設計與脈波整形
 
-**產出三份文件**
+**閱讀**:PySDR Ch11 FIR Filter Design(Within Python、Stateful Filtering)、Arbitrary Frequency Response、Intro to Pulse Shaping
 
-1. GitHub repo README:說明每支程式的用途與執行方式
-2. 技術筆記:每個核心概念的中文摘要,附圖表
-3. 未解問題清單:條列尚未理解的部分,作為下次向教授請教的議題清單
+**實作**
+
+- `d29_firwin_design.py`:用 `scipy.signal.firwin` 設計低通濾波器,畫出 impulse response(taps)與 frequency response,比較不同 `num_taps` 與 transition width 的效果
+- `d30_filter_apply.py`:用 `fftconvolve` 對含干擾的訊號套用濾波器,比較濾波前後的 PSD,驗證干擾訊號被壓到雜訊地板以下(重現原文的 Example Use-Case 情境)
+
+---
+
+### Day 12｜Ch14 IQ Files and SigMF:真實資料處理
+
+**閱讀**:PySDR Ch14 全章(IQ 檔案格式、資料型別、SigMF 標準)
+
+**實作**
+
+- `d31_load_iq.py`:讀入公開 IQ 檔案,處理 int8/int16/float32 等不同資料型別的轉換與正規化,印出檔案基本資訊
+- `d32_analyze_iq.py`:對這份陌生 IQ 資料做完整分析,套用 PSD 六步驟(Day 6)、spectrogram(Day 4)、必要時用 FIR 濾波器(Day 11)做前處理,標出可見訊號的頻率位置與大致頻寬
+
+---
+
+### Day 13｜Ch16 Pulse Shaping
+
+**閱讀**:PySDR Ch16 全章
+
+**實作**
+
+- `d33_pulse_shaping.py`:對 QPSK 符號套用 raised-cosine 濾波器,比較整形前後的時域波形與頻譜佔用
+- `d34_rolloff_compare.py`:掃描不同 β(roll-off factor)值,驗證原文提到的「β 愈小頻寬愈窄、但時域衰減愈慢」這個取捨
+
+---
+
+### Day 14｜Ch24 Detection using Correlation
+
+**閱讀**:PySDR Ch24 全章
+
+**實作**
+
+- `d35_correlation.py`:用 `np.correlate` 實作相關偵測,在含雜訊訊號中找出已知波形的出現位置
+- `d36_detection_threshold.py`:掃描不同 SNR,統計偵測率(Pd)與誤警率(Pfa),討論門檻設定的取捨
