@@ -36,5 +36,5 @@ if __name__ == "__main__":
         ax.grid(True, alpha=0.3)
 
     fig.tight_layout()
-    fig.savefig("week1/d02_undersample.png", dpi=120)  # dot per inch
+    fig.savefig("d02_undersample.png", dpi=120)  # dot per inch
     print("saved to d02_undersample.png")

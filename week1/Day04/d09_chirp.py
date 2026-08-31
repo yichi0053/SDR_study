@@ -36,6 +36,6 @@ axes[1].set_title("frequency domain: FFT cannot show WHEN each frequency occurre
 axes[1].grid(True, alpha=0.3)
 
 fig.tight_layout()
-fig.savefig("week1/d09_chirp.png", dpi=120)
+fig.savefig("d09_chirp.png", dpi=120)
 print("saved to d09_chirp.png")
 print("signal duration:", duration, "s, frequency sweeps from", f0, "Hz to", f1, "Hz")

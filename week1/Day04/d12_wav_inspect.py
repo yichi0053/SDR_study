@@ -2,7 +2,7 @@ import numpy as np
 from scipy.io import wavfile
 
 
-filepath = "week1/consample.wav"
+filepath = "../../sample.wav"
 
 sample_rate, data = wavfile.read(filepath)  # sample_rate = RIFF/fmt chunk/SampleRate
                                             # data = RIFF/data chunk

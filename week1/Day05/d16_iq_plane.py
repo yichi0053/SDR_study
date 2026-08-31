@@ -39,7 +39,7 @@ axes[1].legend()
 axes[1].grid(True, alpha=0.3)
 
 fig.tight_layout()
-fig.savefig("week1/d16_iq_plane.png", dpi=120)
+fig.savefig("d16_iq_plane.png", dpi=120)
 print("saved to d16_iq_plane.png")
 
 radius = np.sqrt(i_component**2 + q_component**2)

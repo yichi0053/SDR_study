@@ -29,5 +29,5 @@ axes[1].plot(np.real(r_phase), np.imag(r_phase), '.')
 axes[1].set_title("phase noise")
 axes[1].grid(True)
 
-plt.savefig("week1/d22_noise.png", dpi=120)
+plt.savefig("d22_noise.png", dpi=120)
 print("saved")

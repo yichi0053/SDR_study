@@ -43,6 +43,6 @@ ax.legend()
 ax.grid(True)
 
 fig.tight_layout()
-fig.savefig("week1/d05_window.png", dpi=120)
+fig.savefig("d05_window.png", dpi=120)
 print("saved to d05_window.png")
 print("N =", N, ", duration*f =", duration * f, "(Non-integer values ​​represent non-integer periods.)")

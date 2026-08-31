@@ -30,6 +30,6 @@ if __name__ == "__main__":
     plt.ylabel("amplitude")
     plt.title(f"sine wave: f={f} Hz, fs={fs} Hz")
     plt.grid(True)
-    plt.savefig("week1/d01_sine.png", dpi=120)
+    plt.savefig("d01_sine.png", dpi=120)
     print("saved to d01_sine.png")
 

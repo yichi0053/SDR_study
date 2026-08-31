@@ -49,7 +49,7 @@ axes[1].set_xlim(-400, 400)
 axes[1].grid(True)
 
 fig.tight_layout()
-fig.savefig("week1/d04_fft_multi.png", dpi=120)
+fig.savefig("d04_fft_multi.png", dpi=120)
 print("saved to d04_fft_multi.png")
 
 for f_expected in [f1, f2, f3]:

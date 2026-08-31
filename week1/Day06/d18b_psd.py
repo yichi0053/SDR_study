@@ -47,7 +47,7 @@ axes[1].set_title("PSD: same signal with simulated DC leakage (LO leakage)")
 axes[1].grid(True, alpha=0.3)
 
 fig.tight_layout()
-fig.savefig("week1/d18b_psd.png", dpi=120)
+fig.savefig("d18b_psd.png", dpi=120)
 print("saved to d18b_psd.png")
 
 avg_pwr_var = np.var(r)

@@ -62,5 +62,5 @@ axes[1].legend(fontsize=8)
 axes[1].grid(True, alpha=0.3)
 
 fig.tight_layout()
-fig.savefig("week1/d08_antialias.png", dpi=120)
+fig.savefig("d08_antialias.png", dpi=120)
 print("saved to d08_antialias.png")

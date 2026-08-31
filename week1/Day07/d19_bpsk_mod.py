@@ -44,7 +44,7 @@ axes[2].set_title(f"BPSK modulated signal (carrier fc={fc} Hz, sps={sps})")
 axes[2].grid(True, alpha=0.3)
 
 fig.tight_layout()
-fig.savefig("week1/d19_bpsk_mod.png", dpi=120)
+fig.savefig("d19_bpsk_mod.png", dpi=120)
 print("saved to d19_bpsk_mod.png")
 
 print("original bits:", bits)

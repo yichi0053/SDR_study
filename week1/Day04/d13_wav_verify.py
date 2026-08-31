@@ -2,7 +2,7 @@ import os
 from scipy.io import wavfile
 
 
-filepath = "week1/sample.wav"
+filepath = "../../sample.wav"
 
 sample_rate, data = wavfile.read(filepath)
 

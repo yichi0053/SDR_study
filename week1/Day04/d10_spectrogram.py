@@ -24,6 +24,6 @@ ax.set_title(f"spectrogram: chirp from {f0} Hz to {f1} Hz clearly visible over t
 fig.colorbar(pcm, ax=ax, label="power (dB)")
 
 fig.tight_layout()
-fig.savefig("week1/d10_spectrogram.png", dpi=120)
+fig.savefig("d10_spectrogram.png", dpi=120)
 print("saved to d10_spectrogram.png")
 print("frequency bins:", len(f_spec), ", time bins:", len(t_spec))

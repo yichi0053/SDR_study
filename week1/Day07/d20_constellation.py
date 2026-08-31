@@ -26,7 +26,7 @@ ax.set_aspect("equal")
 ax.grid(True, alpha=0.3)
 
 fig.tight_layout()
-fig.savefig("week1/d20_constellation.png", dpi=120)
+fig.savefig("d20_constellation.png", dpi=120)
 print("saved to d20_constellation.png")
 
 unique_points = np.unique(x_symbols)

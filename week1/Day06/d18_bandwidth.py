@@ -38,7 +38,7 @@ axes[1, 0].set_ylabel("magnitude (complex)")
 fig.suptitle(f"real signals only use 0 to fs/2 = {fs/2} Hz effectively\n"
              f"complex signals use the full -fs/2 to fs/2 = {fs} Hz")
 fig.tight_layout()
-fig.savefig("week1/d18_bandwidth.png", dpi=120)
+fig.savefig("d18_bandwidth.png", dpi=120)
 print("saved to d18_bandwidth.png")
 
 print("\nreal signal f=490Hz: check if this is close to Nyquist edge (fs/2=500Hz)")

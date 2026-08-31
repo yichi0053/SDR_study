@@ -4,7 +4,7 @@ from scipy.io import wavfile
 from scipy.signal import spectrogram
 
 
-filepath = "week1/sample.wav"
+filepath = "../../sample.wav"
 
 sample_rate, data = wavfile.read(filepath)
 
@@ -34,7 +34,7 @@ ax.set_title(f"spectrogram of {filepath} (sample_rate={sample_rate} Hz, "
 fig.colorbar(pcm, ax=ax, label="power (dB)")
 
 fig.tight_layout()
-fig.savefig("week1/d14_wav_spectrogram.png", dpi=120)
+fig.savefig("d14_wav_spectrogram.png", dpi=120)
 print("saved to d14_wav_spectrogram.png")
 
 energy_per_bin = Sxx.max(axis=1)

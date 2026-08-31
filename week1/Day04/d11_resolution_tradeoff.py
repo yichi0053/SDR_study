@@ -35,7 +35,7 @@ axes[0].set_ylabel("frequency (Hz)")
 
 fig.suptitle("Time-Frequency Tradeoff: smaller nperseg = finer time, coarser frequency")
 fig.tight_layout()
-fig.savefig("week1/d11_resolution_tradeoff.png", dpi=120)
+fig.savefig("d11_resolution_tradeoff.png", dpi=120)
 print("saved to d11_resolution_tradeoff.png")
 
 for nperseg in nperseg_list:

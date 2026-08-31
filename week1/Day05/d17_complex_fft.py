@@ -38,7 +38,7 @@ axes[1].set_title("FFT of COMPLEX signal exp(j*2*pi*f*t): only +f has a peak")
 axes[1].grid(True, alpha=0.3)
 
 fig.tight_layout()
-fig.savefig("week1/d17_complex_fft.png", dpi=120)
+fig.savefig("d17_complex_fft.png", dpi=120)
 print("saved to d17_complex_fft.png")
 
 positive_mask = freqs >= 0
