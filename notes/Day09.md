@@ -14,9 +14,15 @@
 #### dB（Decibels）
 - 對數表達形式，提供更大的動態範圍
 - dB 是無單位的
+- x to dB
 $$
 x_{\text{dB}} = 10 \log_{10} x
 $$
+- dB to x
+$$
+x = 10^{x_{dB}/10}
+$$
+
 
 
 #### Complex Noise
@@ -56,7 +62,7 @@ $$
 \text{SNR} = \frac{P_{\text{signal}}}{P_{\text{noise}}} = \frac{\sigma_{\text{signal}}^2}{\sigma_{\text{noise}}^2}
 $$
 
-- SINR（Signal-to-Interface-plus-Noise Ratio）
+- SINR（Signal-to-Interference-plus-Noise Ratio）
 	- 分母加上了干擾項
 $$\mathrm{SINR} = \frac{P_{signal}}{P_{interference} + P_{noise}}$$
 
