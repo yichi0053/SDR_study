@@ -5,7 +5,7 @@
 	讀取時要再將其分離成`[I+jQ, I+jQ, I+jQ...]`的形式
 	通常用 Binary Files 存儲，節省空間
 
-- **Python**： Complex number default  to `np.complex128`(2 * `float64`). But in DSP/SDR, we tend to use `float16 or float32`(ADC in SDR simply do not have that level of precision)
+- **Python**： Complex number default  to `np.complex128`(2 * `float64`). But in DSP/SDR, we tend to use `int16 or float32`(ADC in SDR simply do not have that level of precision)
 
 - 從 SDR 設備接收 samples 時，要先了解最大值（某些設備默認為 1.0，某些使用整數形式，因此會是 +32767, -32768），若是信號超過接受器最大值，將會飽和（Saturate），信號被截斷
 ![[Pasted image 20260902154426.png]]

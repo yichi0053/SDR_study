@@ -7,8 +7,8 @@
 4. Mixer ( ⊗ )：將 Input 乘上 cos, sin 輸出 I, Q。 
 
 #### Architectures
-- Direct Sampling (Direct RF)：將輸入 downconverse 並分解為 I, Q
-- Direct Conversion (Zero IF)：直接以足夠快的 fs 採樣
+- Direct Sampling (Direct RF)：直接以足夠快的 fs 採樣
+- Direct Conversion (Zero IF)：將輸入 downconverse（to baseband） 並分解為 I, Q
 - Superheterodyne：舊型收音機架構
 - LNA (Low-Noise Amplifier)：適用於極低功率輸出的放大器
 ![[Pasted image 20260830163349.png]]

@@ -16,7 +16,7 @@
 
 #### Nyquist–Shannon Sampling Theorem
 	fs > 2 · f_max
-- 確保有足夠資訊重建原ㄈ訊號	
+- 確保有足夠資訊重建原始訊號	
 
 
 ## Day 1 驗收問題完整解答
